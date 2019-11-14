@@ -20,12 +20,12 @@ public class Quote {
     @ColumnInfo(name = "data")
     String data;
 
-    @NonNull
+
     @ColumnInfo(name = "url")
     String url;
 
 
-    public Quote(int id, @NonNull String author, @NonNull String data, @NonNull String url) {
+    public Quote(int id, @NonNull String author, @NonNull String data, String url) {
         this.id = id;
         this.author = author;
         this.data = data;
@@ -33,7 +33,7 @@ public class Quote {
     }
 
 
-    public Quote(@NonNull String author, @NonNull String data, @NonNull String url) {
+    public Quote(@NonNull String author, @NonNull String data,String url) {
         this.id = id;
         this.author = author;
         this.data = data;
