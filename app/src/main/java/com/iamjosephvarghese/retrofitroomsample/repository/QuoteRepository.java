@@ -29,6 +29,7 @@ public class QuoteRepository {
         return quoteDao.getQuotes(author);
     }
 
+
     public void insert(Quote quote){
         new insertAsyncTask(quoteDao).execute(quote);
     }

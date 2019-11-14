@@ -1,13 +1,17 @@
 package com.iamjosephvarghese.retrofitroomsample.views;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.iamjosephvarghese.retrofitroomsample.R;
+import com.iamjosephvarghese.retrofitroomsample.model.Quote;
 import com.iamjosephvarghese.retrofitroomsample.repository.QuoteRepository;
+import com.iamjosephvarghese.retrofitroomsample.viewModel.ViewModel;
 
 import java.sql.BatchUpdateException;
 
@@ -15,6 +19,7 @@ public class AddQuote extends AppCompatActivity {
 
     Button button;
     EditText author, data;
+    ViewModel viewModel;
 
     QuoteRepository quoteRepository;
 
@@ -26,7 +31,17 @@ public class AddQuote extends AppCompatActivity {
         author = findViewById(R.id.authorBox);
         data = findViewById(R.id.dataBox);
 
+        viewModel = new ViewModelProvider(this).get(ViewModel.class);
 
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(author.getText().toString() != null && data.getText().toString() != null){
+                    viewModel.insert(new Quote(author.getText().toString(),data.getText().toString(),null));
+                }
+            }
+        });
 
 
     }

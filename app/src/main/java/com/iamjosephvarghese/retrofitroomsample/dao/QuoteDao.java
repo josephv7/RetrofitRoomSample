@@ -25,4 +25,7 @@ public interface QuoteDao {
     @Query("SELECT * from quoteTable WHERE author = :author")
     LiveData<List<Quote>> getQuotes(String author);
 
+    @Query("SELECT * from quoteTable")
+    LiveData<List<Quote>> getAllQuotes();
+
 }
