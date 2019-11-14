@@ -32,6 +32,14 @@ public class Quote {
         this.url = url;
     }
 
+
+    public Quote(@NonNull String author, @NonNull String data, @NonNull String url) {
+        this.id = id;
+        this.author = author;
+        this.data = data;
+        this.url = url;
+    }
+
     public int getId() {
         return id;
     }
