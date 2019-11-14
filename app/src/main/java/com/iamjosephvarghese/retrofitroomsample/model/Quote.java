@@ -9,7 +9,9 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "quoteTable")
 public class Quote {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
+    int id;
+
     @NonNull
     @ColumnInfo(name = "author")
     String author;
@@ -23,10 +25,15 @@ public class Quote {
     String url;
 
 
-    public Quote(@NonNull String author, @NonNull String data, @NonNull String url) {
+    public Quote(int id, @NonNull String author, @NonNull String data, @NonNull String url) {
+        this.id = id;
         this.author = author;
         this.data = data;
         this.url = url;
+    }
+
+    public int getId() {
+        return id;
     }
 
     @NonNull
