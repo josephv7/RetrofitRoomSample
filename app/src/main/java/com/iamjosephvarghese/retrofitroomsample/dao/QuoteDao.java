@@ -2,6 +2,8 @@ package com.iamjosephvarghese.retrofitroomsample.dao;
 
 import com.iamjosephvarghese.retrofitroomsample.model.Quote;
 
+import java.util.List;
+
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
@@ -21,6 +23,6 @@ public interface QuoteDao {
     void deleteQuoteByAuthor(String author);
 
     @Query("SELECT * from quoteTable WHERE author = :author")
-    LiveData<Quote> getQuote(String author);
+    LiveData<List<Quote>> getQuotes(String author);
 
 }
