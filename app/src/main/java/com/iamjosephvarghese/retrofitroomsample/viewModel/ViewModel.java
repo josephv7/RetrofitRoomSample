@@ -21,7 +21,7 @@ public class ViewModel extends AndroidViewModel {
 
     }
 
-    public LiveData<List<Quote>> getSchedule(String author){
+    public LiveData<List<Quote>> getQuotes(String author){
         return quoteRepository.getQuotes(author);
     }
 

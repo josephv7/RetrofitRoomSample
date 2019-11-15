@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,6 +40,8 @@ public class AddQuote extends AppCompatActivity {
             public void onClick(View view) {
                 if(author.getText().toString() != null && data.getText().toString() != null){
                     viewModel.insert(new Quote(author.getText().toString(),data.getText().toString(),null));
+                    Log.d("here","...");
+                    Log.d("data",viewModel.getQuotes("hh").getValue().get(0).data);
                 }
             }
         });
